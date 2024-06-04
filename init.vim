@@ -1,21 +1,35 @@
-" this will install vim-plug if not installed
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall
-endif
-    
+"==============================
+"configuracoes de funcionamento
+"==============================
+
+set hidden "permite que eu faça alterações em outros arquivos sem ter que salvar as alterações no arquivo corrente
+
+set number "mostra o numero das linhas
+
+set mouse=a "habilita a interação utilizando o mouse (temporario)
+
+set inccommand=split "habilita um feedback em tempo real de algumas funcionalidades do vim
+
+
+
+"==================================================
+"Área para inserção de pluggins utilizando Junegunn
+"==================================================
+
 call plug#begin()
-" here you'll add all the plugins needed"
 
-Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'} " this is for auto complete, prettier and tslinting
+" List your plugins here
 
-let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier']  " list of CoC extensions needed
+Plug 'morhetz/gruvbox' "Tema recomendado por Thales Mello (Paggarme Talks)
+Plug 'terryma/vim-multiple-cursors' "Gera a funcao de multiplos cursores ([Ctrl+n] - selecionar tds palavras iguais; [C] - editar)
+Plug 'sheerun/vim-polyglot' "Sintaxe de várias linguagens para hightlight
+Plug 'jiangmiao/auto-pairs' "Completa pares automaticamente
 
-Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
-
-" these two plugins will add highlighting and indenting to JSX and TSX files.
-Plug 'yuezk/vim-js'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'maxmellon/vim-jsx-pretty'
 call plug#end()
+
+"======================
+"Área de edição do tema
+"======================
+
+colorscheme gruvbox
+set background=dark
